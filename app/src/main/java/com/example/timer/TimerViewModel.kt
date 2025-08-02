@@ -1,6 +1,5 @@
 package com.example.timer
 
-
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Job
@@ -28,7 +27,7 @@ class TimerViewModel(
         isRunning = true
         timerJob = viewModelScope.launch {
             while (timeLeft > 0 && isRunning) {
-                delay(16) // ~60 FPS (16ms)
+                delay(16)
                 timeLeft = (timeLeft - 16).coerceAtLeast(0L)
                 onTick(timeLeft)
             }
